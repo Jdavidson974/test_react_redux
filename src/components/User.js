@@ -1,13 +1,14 @@
+import { useSelector } from "react-redux";
 import React from "react";
-
 const User = () => {
+  const user = useSelector((state) => state.userReducer)
   return (
     <div className="user-container">
       <div className="user">
-        <h3>pseudo</h3>
+        <h3>{user.pseudo}</h3>
         <img src="./img/bill-gates.png" alt="bill gates" />
-        <p>Age : 30 ans</p>
-        <p>Like(s) : 0</p>
+        <p>Age : {user.age} ans</p>
+        <p>Like{user.likes > 1 ? "s" : ""} : {user.likes}</p>
       </div>
     </div>
   );
